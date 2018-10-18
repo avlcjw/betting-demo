@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div.container.after-clear.text-center
+        h1 robot-小时机器人
+        input.input-num#num(placeholder='开奖号码')
+        button(type=submit).addBtn 增加训练
+        //button.fl.initBtn 初始训练
+
+block script
+    script(src='/javascripts/index.js')

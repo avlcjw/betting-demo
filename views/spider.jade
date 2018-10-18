@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div.container.after-clear.text-center
+        h1 小时机器人-spider
+        input.input-num#num(placeholder='spider')
+        button(type=submit).addBtn 增加训练
+        //button.fl.initBtn 初始训练
+
+block script
+    script(src='/javascripts/spider.js')

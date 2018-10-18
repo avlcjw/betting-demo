@@ -1,0 +1,58 @@
+extends layout
+
+block content
+    div.container.after-clear.text-center
+        h1 小时机器人-formula
+        p
+            span 开始日期：
+            span= startDate
+            span(style="margin-left:10px;") 最后日期：
+            span= endDate
+        p
+            span 出手机会：
+            span= times
+            span(style="margin-left:10px;") 中奖次数：
+            span= winTimes
+            span(style="margin-left:10px;") 失败次数：
+            span= missTimes
+        p
+            span 初始下注：
+            span= initPernote
+            span(style="margin-left:10px;") 最大下注：
+            span= biggestMoney
+            span(style="margin-left:10px;") 本金：
+            span= accountStartMoney
+            span(style="margin-left:10px;") 余额：
+            span= accountMoney
+        table.records(border="1" cellspacing="0" width="900" style="margin-left: -100px")
+            thead
+                tr
+                    th(style="width:100px") 期数
+                    //th(style="width:200px") 时间
+                    th(style="width:200px") 号码
+                    th(style="width:100px") 万位购买
+                    th(style="width:100px") 万位中奖
+                    th(style="width:100px") 千位购买
+                    th(style="width:100px") 千位中奖
+                    th(style="width:100px") 个位购买
+                    th(style="width:100px") 个位中奖
+                    th(style="width:100px") 余额
+            tbody
+            each doc in docs
+                tr
+                    td= doc.expect
+                    //td= doc.opentime
+                    td= doc.opencode
+                    td(style="font-size:12px;")= doc.wanIsBougth || ''
+                        span= doc.wanBuy || ''
+                    td(style="color:red")= doc.wanIsWinning ? '√' : ''
+                    td(style="font-size:12px;")= doc.qianIsBougth || ''
+                        span= doc.qianBuy || ''
+                    td(style="color:red")= doc.qianIsWinning ? '√' : ''
+                    td(style="font-size:12px;")= doc.geIsBougth || ''
+                        span= doc.geBuy || ''
+                    td(style="color:red")= doc.geIsWinning ? '√' : ''
+                    td= doc.accountMoney
+
+block script
+    script(src='/javascripts/formula.js')
